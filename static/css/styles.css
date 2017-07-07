@@ -1,0 +1,144 @@
+/* Global */
+h2, .h2{
+  color: #e91e63;
+}
+
+/* Body */
+body{
+  background-color:#f1efea ;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  word-wrap: break-word;
+  margin: 0;
+  color: #515348;
+
+}
+/* Header */
+.header {
+    padding: 20px 0 30px;
+}
+.wrapper {
+    padding: 35px 0;
+}
+@media (min-width: 768px)
+{
+  .wrapper {
+    padding: 40px 0;
+  }
+  .content img {
+    max-width: 528px !important;
+}
+  .form-inline .form-group{
+    margin-bottom: -19px;
+  }
+}
+/* images */
+.img-inline, .img-responsive.img-inline {
+    display: inline-block;
+}
+.content img {
+    max-width: 100% !important;
+    margin-bottom: 20px;
+}
+.img-responsive {
+    width: auto;
+}
+.wrapper {
+    position: relative;
+    padding: 0 0 20px;
+}
+.verticalLine {
+  border-right: thick solid #ff0000;
+}
+.carousel-inner{
+  max-height:500px;
+}
+.profile-image{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+}
+/*main view */
+.background-white{
+  background-color:white ;
+  margin-top:90px;
+  border-radius: 45px;
+  padding: 25px 10px 25px 10px;
+}
+
+
+/* Forms */
+form {
+  margin: auto;
+  text-align: center;
+  width: 450px;
+  background: #f7f6f3;
+  border: 1px solid #e7e5e0;
+  border-radius: 10%;
+
+}
+form h2{
+    background-color: #1b6d85;
+    padding: 10px 0;
+    margin: 0;
+}
+form input[type='text'],input[type='password'] {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border: 1px solid #aaa;
+    padding: 7px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 13px;
+    border-radius: 3px;
+    width: 270px;
+    position: relative;
+}
+
+
+.text-grean{
+  color: #4caf50;
+}
+.text-grean:hover{
+  color: #8BC34A;
+}
+.text-area{
+    max-width: 500px;
+    max-height: 300px;
+}
+.hiberlink-inline{
+  margin-left: 10px;
+  font-size: small;
+}
+.right{
+  text-align: right;
+}
+.marg{
+  margin-top: 50px;
+}
+
+/*Start CopyRight*/
+.copyright{
+    background: #333;
+    color: #AAA;
+    padding: 15px 0;
+    margin-top: 10px;
+    font-size: 18px;
+    border-radius: 45px;
+}
+
+legend {
+    color: #B20C11;
+    font-size: 50px;
+    font-family: Blagovest;
+}
+.imk {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    position: fixed;
+    min-height: 100%;
+    margin: 0px;
+    padding: 0px;
+    z-index: -1;
+}
