@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
 from sqlalchemy import create_engine, Column, String, Integer, ForeignKey, DateTime, func, Boolean
-from sqlalchemy.orm import relation
+from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -33,6 +34,7 @@ class Device(Base):
     __tablename__ = 'device'
     name = Column(String(100))
     id = Column(Integer, primary_key=True)
+    quantity = Column(Integer,nullable=False)
 
 
 class DeviceEmployee(Base):
@@ -45,12 +47,15 @@ class DeviceEmployee(Base):
     time = Column(DateTime, nullable=False)
     address = Column(String(500), nullable=False)
     status = Column(Boolean, default=False)
+    phone = Column(String(20))
     client_name = Column(String(100), nullable=False)
     issues = Column(Boolean, default=False)
+    addtion = Column(String)
     user_id = Column(Integer, ForeignKey('user.id'))
     device_id = Column(Integer, ForeignKey('device.id'))
-    user = relation(User)
-    device = relation(Device)
+    user = relationship(User)
+    device = relationship(Device)
+    message = Column(String)
 
 
 class Issue(Base):
@@ -60,7 +65,7 @@ class Issue(Base):
     time = Column(DateTime(timezone=True), nullable=False, server_default=func.now())
     issue = Column(String, nullable=False)
     device_employee_id = Column(Integer, ForeignKey('device_employee.id'))
-    device_employee = relation(DeviceEmployee)
+    device_employee = relationship(DeviceEmployee)
 
 engine = create_engine('sqlite:///DataStore.db')
 Base.metadata.create_all(engine)

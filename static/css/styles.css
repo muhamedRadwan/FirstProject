@@ -1,8 +1,10 @@
 /* Global */
-h2, .h2{
-  color: #e91e63;
+li{
+display:block
 }
-
+.h2{
+color:#8e2b19;
+}
 /* Body */
 body{
   background-color:#f1efea ;
@@ -11,7 +13,6 @@ body{
   word-wrap: break-word;
   margin: 0;
   color: #515348;
-
 }
 /* Header */
 .header {
@@ -48,7 +49,7 @@ body{
     padding: 0 0 20px;
 }
 .verticalLine {
-  border-right: thick solid #ff0000;
+  border-left: thick solid #ff0000;
 }
 .carousel-inner{
   max-height:500px;
@@ -60,18 +61,28 @@ body{
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
 }
+
+.dropdown{
+    cursor: pointer;
+}
+
 /*main view */
 .background-white{
   background-color:white ;
   margin-top:90px;
   border-radius: 45px;
   padding: 25px 10px 25px 10px;
+  min-height: 400px;
+  margin-bottom: 83px;
 }
-
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus{
+    background-color: black;
+}
 
 /* Forms */
 form {
   margin: auto;
+  margin-top: 25px;
   text-align: center;
   width: 450px;
   background: #f7f6f3;
@@ -84,7 +95,7 @@ form h2{
     padding: 10px 0;
     margin: 0;
 }
-form input[type='text'],input[type='password'] {
+form input[type='text'],input[type='password'],input[type='number'] {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     border: 1px solid #aaa;
     padding: 7px;
@@ -94,7 +105,14 @@ form input[type='text'],input[type='password'] {
     width: 270px;
     position: relative;
 }
+form img{
+      margin-top: 10px;
+    cursor: pointer;
 
+}
+input[type='file']{
+    display: none;
+}
 
 .text-grean{
   color: #4caf50;
@@ -124,7 +142,7 @@ form input[type='text'],input[type='password'] {
     padding: 15px 0;
     margin-top: 10px;
     font-size: 18px;
-    border-radius: 45px;
+    width: 100%;
 }
 
 legend {
@@ -141,4 +159,21 @@ legend {
     margin: 0px;
     padding: 0px;
     z-index: -1;
+}
+.orders{
+  background-color: #ececec;
+  border-radius: 9%;
+  padding: 10px 0 1px 0;
+  text-align: center;
+  max-width: 500px;
+  margin: auto auto 10px;
+}
+
+.dropdown-menu{
+    right: auto;
+}
+
+.del{
+    background: none;
+    border:  none;
 }

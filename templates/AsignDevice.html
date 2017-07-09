@@ -1,0 +1,39 @@
+{% from '_formhelpers.html' import render_field %}
+{% extends 'main.html' %}
+{% include 'header.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row center-block">
+            <form class="form-group lead"  method="post" action="{{ url_for('assign_device') }}" enctype=multipart/form-data>
+              <h2 class="text-center">تسجيل طلب </h2>
+                        <dl>
+                            {{ form.hidden_tag() }}
+                            <div class="form-group">
+                                {{ render_field(form.clientName) }}
+                            </div>
+                            <div class="form-group">
+                                {{ render_field(form.PhoneNumber) }}
+                            </div>
+                            <div class="form-group">
+                                {{ render_field(form.Address) }}
+                            </div>
+                            <div class="form-group lead">
+                            {{ render_field(form.Device) }}
+                            </div>
+                            <div class="form-group lead">
+                            {{ render_field(form.user) }}
+                            </div>
+                            <div class="form-group lead">
+                            <dt>
+                                <label>أختار معاد</label>
+                            </dt><dd>
+                                <input type="date" name="date"> <input type="time" name="time">
+                                </dd>
+                            </div>
+                            <input type="submit" value="تسجيل" class="btn-primary btn">
+                        </dl>
+                    </form>
+        </div>
+    </div>
+{% include 'footer.html' %}
+{% endblock %}

@@ -9,19 +9,28 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{{ url_for('index') }}">Categories App </a>
+          <a class="navbar-brand" href="{{ url_for('index') }}">Repository App </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-right" id="bs-collapse-1">
+        <div class="collapse navbar-collapse navbar-left" id="bs-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a></li>
+            <li><a href="{{ url_for('index')}}">الصفحه الرئيسيه </a></li>
            {% if session['id'] %}
-               <li><a href="{{ url_for('logout') }}">Logout</a></li>
-               {%  if session['provider'] == 'website' %}
-                <li><img title="{{ session['username'] }}" src="{{ url_for("static", filename='%s'%session['picture'])  }}" class="profile-image"></li>
-                {% else %}
-                <li><img title="{{ session['username'] }}" src="{{ session['picture']}}" class="profile-image"></li>
-                {% endif %}
+               {% if session['type'] == 'ADMIN' %}
+                <li><a href="{{ url_for('add_user') }}">أضافة عامل</a></li>
+                   <li><a href="{{ url_for('new_device') }}">اضافه جهاز </a></li>
+                   <li><a href="{{ url_for('assign_device') }}">اضافه طلب </a></li>
+                 {% endif %}
+               <li>
+                  <div class="dropdown pull-left">
+                      <a class="dropdown-toggle"  data-toggle="dropdown" data-hover="dropdown">
+                       <img title="{{ session['username'] }}" src="{{ url_for("static", filename='%s'%session['picture'])  }}" class="profile-image">
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                      </ul>
+                    </div>
+                </li>
            {% else %}
                <li><a href="{{ url_for('login') }}">Login</a></li>
                <li><a href="{{ url_for('singup') }}">Register</a></li>

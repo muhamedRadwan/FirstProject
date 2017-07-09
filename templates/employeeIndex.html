@@ -1,0 +1,30 @@
+<div class="container">
+        <div class="row">
+            <div class="background-white">
+                <div class="row">
+                    <div class="col-md-12  text-center">
+                        <p class="h2">جدول عملك</p>
+                         {% if orders %}
+                         <div class="row">
+                        {% for i in orders %}
+                            <div class="col-sm-offset-1 col-sm-5 ">
+                               <div class="lead orders">
+                                   <ul>
+                                       <li> <label class="right">الوقت: {{ i.time }}</label></li>
+                                       <li>  <label>اسم العميل: {{ i.client_name }}</label></li>
+                                       <li>  <label><p>الموقع: </p>{{ i.address }}</label></li>
+                                       <li>  <label>نوع الجهاز: {{ i.device.name }}</label></li>
+                                   </ul>
+                                   <a href="{{ url_for('show_order',order_id=i.id) }}" class="btn btn-primary">تسليم</a>
+                                </div>
+                               </div>
+                                {% endfor %}
+                        </div>
+                             {% else %}
+                             <h2>ليس لديك اعمال جديده حتي الان :)</h2>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

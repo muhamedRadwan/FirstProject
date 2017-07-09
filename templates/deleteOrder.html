@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+<!-- Show Category -->
+{% block content %}
+{% include 'header.html' %}
+<div class="container background-white">
+    {% if order %}
+       {% if order.status %}
+            <div class="lead orders text-grean">
+               <ul>
+                   <li> <label class="right">الوقت: {{ order.time }}</label></li>
+                   <li>  <label>اسم العميل: {{ order.client_name }}</label></li>
+                   <li>  <label><p>الموقع: </p>{{ order.address }}</label></li>
+                   <li>  <label>نوع الجهاز: {{ order.device.name }}</label></li>
+                   <li><label>تم التسليم بالنجاح </label></li>
+                   {% if order.addtion %}
+                        <li><label>{{ order.addtion }} الاضافات  </label></li>
+                   {% endif %}
+                    <li><a href="{{ url_for('') }}" class="btn-danger btn">حذف</a></li>
+               </ul>
+            </div>
+        {% else %}
+            <div class="lead orders text-danger">
+               <ul>
+                   <li> <label class="right">الوقت: {{ order.time }}</label></li>
+                   <li>  <label>اسم العميل: {{ order.client_name }}</label></li>
+                   <li>  <label><p>الموقع: </p>{{ order.address }}</label></li>
+                   <li>  <label>نوع الجهاز: {{ order.device.name }}</label></li>
+                   <li><label>لم يتم التسليم</label></li>
+                   {% if order.message %}
+                        <li><label>{{ order.message }} سبب الالغاء  </label></li>
+                   {% endif %}
+               </ul>
+            </div>
+        {% endif %}
+        <form method="post" class="del" action="{{url_for('delete_order', order_id=order.id)}}">
+            <input type="submit" value="Delete" class="btn btn-danger"> |
+            <a href="{{ url_for('index') }}" class="btn btn-primary">Cancel</a>
+        </form>
+    {% endif %}
+</div>
+    {%  include 'footer.html' %}
+{% endblock %}

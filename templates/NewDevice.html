@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% block content %}
+    {% include 'header.html' %}
+    <div class="container background-white">
+        <form class="lead center-block"  method="post" action="{{ url_for('new_device') }}" enctype=multipart/form-data>
+              <h2 class="text-center">اضافه جهاز</h2>
+                        <dl>
+                            <div class="form-group">
+                                <label for="name">اسم الجهاز</label>
+                                <input type="text" id="'name" name="name" class="form-control center-block">
+                            </div>
+                            <div class="form-group">
+                                <label for="number">الكميه</label>
+                                <input type="number" id="number" name="number" class="form-control center-block">
+                            </div>
+                            <input type="submit" value="حفظ" class="btn-success btn">
+                            <a href="{{ url_for('index') }}" class="btn-primary btn">رجوع</a>
+                        </dl>
+                    </form>
+    </div>
+    {% include 'footer.html' %}
+{% endblock%}

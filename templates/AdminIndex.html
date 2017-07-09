@@ -1,0 +1,60 @@
+<div class="container">
+        <div class="row">
+            <div class="background-white">
+                <div class="row">
+                    <div class="col-md-5 verticalLine">
+                        <p class="h2">All Orders</p>
+                        {% if orders %}
+                            {% for order in orders %}
+                                {% if order.status %}
+                                    <div class="lead orders text-grean">
+                                       <ul>
+                                           <li> <label class="right">الوقت: {{ order.time }}</label></li>
+                                           <li>  <label>اسم العميل: {{ order.client_name }}</label></li>
+                                           <li>  <label><p>الموقع: </p>{{ order.address }}</label></li>
+                                           <li>  <label>نوع الجهاز: {{ order.device.name }}</label></li>
+                                           <li><label>تم التسليم بالنجاح </label></li>
+                                           {% if order.addtion %}
+                                                <li><label>{{ order.addtion }} <p>الاضافات</p>  </label></li>
+                                           {% endif %}
+                                            <li><a href="{{ url_for('delete_order',order_id=order.id) }}" class="btn-danger btn">حذف</a></li>
+                                       </ul>
+                                    </div>
+                                {% else %}
+                                    <div class="lead orders text-danger">
+                                       <ul>
+                                           <li> <label class="right">الوقت: {{ order.time }}</label></li>
+                                           <li>  <label>اسم العميل: {{ order.client_name }}</label></li>
+                                           <li>  <label><p>الموقع: </p>{{ order.address }}</label></li>
+                                           <li>  <label>نوع الجهاز: {{ order.device.name }}</label></li>
+                                           <li><label>لم يتم التسليم</label></li>
+                                           {% if order.message %}
+                                                <li><label>{{ order.message }} <p>سبب الالغاء</p>  </label></li>
+                                           {% endif %}
+                                       </ul>
+                                     <li><a href="{{ url_for('delete_order',order_id=order.id) }}" class="btn-danger btn">حذف</a></li>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif%}
+
+                    </div>
+                    <div class=" col-md-offset-1 col-md-6">
+                        <p class="h2">Notifications</p>
+                        {% if devices %}
+                        {% for device in devices %}
+                             <ul>
+                                <li> <label class="right">اسم الجهز : {{ device.name }}</label></li>
+                                 {% if device.quantity >5 %}
+                                     <li class="text-grean">  <label>الكميه المتبقيه : {{ device.quantity }}</label></li>
+                                {% else %}
+                                    <li class="text-danger">  <label>الكميه المتبقيه : {{ device.quantity }}</label></li>
+                                {% endif %}
+                             </ul>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

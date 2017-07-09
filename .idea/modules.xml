@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../secondterm/NanoDegree/ForthProjectContent/fullstack-nanodegree-vm/vagrant/itemCatalogApp/.idea/itemCatalogApp.iml" filepath="$PROJECT_DIR$/../secondterm/NanoDegree/ForthProjectContent/fullstack-nanodegree-vm/vagrant/itemCatalogApp/.idea/itemCatalogApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/work.iml" filepath="$PROJECT_DIR$/.idea/work.iml" />
     </modules>
   </component>

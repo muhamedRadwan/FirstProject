@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+{% block content %}
+{% include 'header.html'%}
+<div class="background-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 ">
+                {% if item%}
+               <div class="lead orders">
+                   <ul>
+                       <li> <label class="right">الوقت: {{ item.time }}</label></li>
+                       <li>  <label>اسم العميل: {{ item.client_name }}</label></li>
+                       <li>  <label><p>الموقع: </p>{{ item.address }}</label></li>
+                       <li>  <label>نوع الجهاز: {{ item.device.name }}</label></li>
+                   </ul>
+                   <form class="" method="post" action="{{ url_for('show_order',order_id=item.id) }}">
+                       <label>هل تم تصليح الجهاز</label>
+                       <label class="form-control">نعم<input type="radio" id="ok" name="status" value="True"></label>
+                       <label class="form-control" >لا<input  id="error" type="radio" name="status" value="False"></label>
+                       <label>إضافات عند التركيب ؟ </label>
+                       <label class="form-control">نعم<input type="radio" id="r1" name="Addition" value="True"></label>
+                       <label class="form-control">لا<input type="radio" id="r2"name="Addition" value="False"></label>
+                       <div class="Add">
+                           <label> اضافه </label><textarea type="text" name="Add" placeholder="اكتب هنا الاضافات"></textarea>
+                       </div>
+                       <input type="submit" value="ارسال" class="btn btn-primary">
+                       <a id="error" class="btn btn-danger" href="{{ url_for('index') }}">الغاء الطلب</a>
+                       <div id="appear" class="form-group">
+                           <textarea placeholder="اكتب سبب الالغاء هنا" name="cancelationReason" rows="5" cols="35"></textarea><br>
+                           <button type="button" class="btn btn-primary" id="disappear">رجوع</button>
+                           <button type="submit" class="btn btn-danger">تاكيد الالغاء</button>
+                       </div>
+                   </form>
+                </div>
+                {% endif %}
+               </div>
+        </div>
+    </div>
+</div>
+{% include 'footer.html'%}
+
+{% endblock %}
